@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo site</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .para{
+            text-align: center;
+            margin: 10px 0px 50px 0px;
+        }
+        .cho{
+            text-align: center;
+        }
+        .form-control{
+            margin: 0 40vw 10px 40vw;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1 style="margin-top: 100px;">Sleep Stage Classification</h1>
+    <div class="para">
+        <p1 style="font-size:large;">Welcome to Sleep Stage Classification.
+            Upload an .edf file to Predict Sleep Stages and to plot Hypnogram </p1>
+    </div>
+
+    <div class="cho">
+    <form action="/" method=post enctype=multipart/form-data>
+        <input type=file name=file class="form-control" autocomplete="off" required>
+        <input type=submit value=Upload>
+    </form>
+</div>
+    <h1 style="color: red; font-size:medium">{{text}}</h1>
+</body>
+
+</html>

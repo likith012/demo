@@ -1,0 +1,15 @@
+<h3>prediction page<h3/>
+    <body> 
+        <div class="bd-example" align="middle">
+         
+        <img src="{{url_for('static', filename='Hypnogram.png')}}" 
+            width="1200"
+            height="400"/>
+        <form method="POST" action="/downloads">
+            <input type="submit" value="CSV" name="download"/>
+            <input type="submit" value="Download Image" name="hypnogram"/>
+            <input type="submit" value="Reset and back to Home Page" name="Reset"/>
+
+        </form> 
+        </div>
+    </body>
