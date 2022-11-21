@@ -65,11 +65,12 @@ def predictions_page():
     # create the training model
     config = Config()
     script_module_path = config.script_pth
-    model = torch.jit.load(script_module_path, map_location=config.device)
+    model = torch.jit.load(script_module_path, map_location=torch.device('cpu'))
 
     if request.form['Predict'] == 'PREDICT':
         file_name = os.listdir("user_uploads")[0]
         print (file_name)
+        
         def predict(model, edf_path, device, ann_file=None, channel="EEG Fpz-Cz"):
             event_mapping = {
                 "Sleep stage W": 0,
@@ -118,7 +119,7 @@ def predictions_page():
         edf_path = os.path.join(cwd , 'user_uploads' , str(file_name))
         model.eval()
         with torch.no_grad():
-            outs = predict(model, edf_path, config.device)
+            outs = predict(model, edf_path, torch.device('cpu'))
         outs.tofile('predictions.csv', sep = ',')
 
         #plotting the Hypnogram
